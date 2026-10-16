@@ -1,0 +1,47 @@
+#sai-fab{position:fixed;bottom:20px;right:20px;z-index:99999;width:48px;height:48px;border-radius:50%;border:none;background:#d97757;color:#fff;font-size:22px;cursor:pointer;box-shadow:0 2px 8px #0004}
+#sai-fab:not([data-badge=""])::after{content:attr(data-badge);position:absolute;top:-4px;right:-4px;background:#e33;color:#fff;font-size:11px;border-radius:10px;padding:1px 6px}
+#sai-fab.busy{animation:sai-ring 1.4s infinite}
+@keyframes sai-ring{0%{box-shadow:0 0 0 0 #d9775788}100%{box-shadow:0 0 0 14px #d9775700}}
+#sai-panel{display:none;position:fixed;bottom:80px;right:20px;width:760px;height:540px;max-width:95vw;max-height:80vh;z-index:99999;background:#fff;color:#222;border-radius:10px;box-shadow:0 6px 24px #0005;font:13px system-ui,sans-serif;flex-direction:column;overflow:hidden}
+#sai-panel.open{display:flex}
+#sai-header{padding:10px 12px;background:#f4f1ec;border-bottom:1px solid #ddd;display:flex;gap:8px;align-items:center}
+#sai-count{color:#777}.sai-actions{margin-left:auto}
+.sai-follow{color:#555;font-size:12px;cursor:pointer;margin-left:8px}
+#sai-header button{border:1px solid #ccc;background:#fff;border-radius:5px;padding:2px 8px;cursor:pointer;margin-left:4px}
+#sai-toolbar{display:flex;gap:8px;align-items:center;padding:6px 10px;border-bottom:1px solid #ddd}
+#sai-tabs{display:flex;gap:4px;flex:1;flex-wrap:wrap}
+#sai-tabs button{border:none;background:none;border-radius:12px;padding:3px 10px;cursor:pointer;color:inherit}
+#sai-tabs button.on{background:#d97757;color:#fff}#sai-tabs small{opacity:.7}
+#sai-search{border:1px solid #ccc;border-radius:5px;padding:3px 8px;width:160px;background:transparent;color:inherit}
+#sai-body{display:flex;flex:1;min-height:0}
+#sai-list{width:300px;margin:0;padding:0;list-style:none;overflow-y:auto;border-right:1px solid #ddd}
+#sai-list li{padding:9px 12px;border-bottom:1px solid #eee;cursor:pointer;position:relative}
+#sai-list li:hover{background:#f7f7f7}
+#sai-list li.sel{background:#fbeee8}
+#sai-list li.unread{border-left:3px solid #d97757}#sai-list li.unread .sai-title{font-weight:700}
+#sai-list li.running::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,#d97757,transparent);background-size:50% 100%;background-repeat:no-repeat;animation:sai-slide 1.2s linear infinite}
+@keyframes sai-slide{from{background-position:-50% 0}to{background-position:150% 0}}
+.sai-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sai-snip{color:#555;font-size:12px;margin:2px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sai-time{color:#999;font-size:11px}
+.sai-dot{margin-right:5px;font-size:11px}.sai-dot.running{color:#d97757;animation:sai-blink 1s infinite}.sai-dot.done{color:#3a9b5c}.sai-dot.error{color:#d33}
+@keyframes sai-blink{50%{opacity:.25}}
+#sai-detail{flex:1;padding:14px;overflow-y:auto}
+#sai-detail h3{margin:0 0 4px}#sai-detail h4{margin:12px 0 4px}
+#sai-detail pre{white-space:pre-wrap;background:#f6f6f6;padding:8px;border-radius:6px;font-size:12px}
+#sai-full{max-height:220px;overflow-y:auto}
+.sai-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+#sai-detail button{border:none;background:#d97757;color:#fff;border-radius:5px;padding:5px 10px;cursor:pointer}
+#sai-detail button.danger{background:#888}
+#sai-foot{padding:4px 12px;font-size:11px;color:#999;border-top:1px solid #ddd}
+.sai-empty{color:#999;padding:12px}
+.sai-flash{outline:3px solid #d97757 !important;transition:outline .3s}
+#sai-toasts{position:fixed;bottom:80px;right:20px;z-index:99999;display:flex;flex-direction:column;gap:6px;align-items:flex-end;font:13px system-ui,sans-serif}
+.sai-toast{background:#262624;color:#eee;border-left:4px solid #d97757;border-radius:6px;padding:8px 12px;max-width:320px;cursor:pointer;box-shadow:0 3px 12px #0005;display:flex;flex-direction:column;animation:sai-in .2s}
+.sai-toast span{color:#bbb;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@keyframes sai-in{from{opacity:0;transform:translateY(8px)}}
+@media (prefers-color-scheme:dark){#sai-panel{background:#262624;color:#eee}#sai-header{background:#1f1e1d;border-color:#444}#sai-header button{background:#333;color:#eee;border-color:#555}#sai-toolbar,#sai-foot{border-color:#444}#sai-search{border-color:#555}#sai-list{border-color:#444}#sai-list li{border-color:#333}#sai-list li:hover{background:#30302e}#sai-list li.sel{background:#3a2e29}#sai-detail pre{background:#1f1e1d}.sai-snip,.sai-follow{color:#bbb}}
+
+body.sai-picking, body.sai-picking *{cursor:crosshair !important}
+.sai-pick{outline:3px dashed #d97757 !important;outline-offset:-3px;background:#d9775722 !important}
+.sai-msg{line-height:1.5}.sai-msg code{background:#8882;padding:1px 4px;border-radius:3px;word-break:break-all}
+.sai-dbg{border-collapse:collapse;width:100%;margin:8px 0}.sai-dbg td,.sai-dbg th{border-bottom:1px solid #8883;padding:3px 6px;text-align:left;font-size:12px}
